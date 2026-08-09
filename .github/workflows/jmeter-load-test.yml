@@ -1,0 +1,35 @@
+name: JMeter Load Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  jmeter-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install JMeter
+        run: |
+          wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          tar -xzf apache-jmeter-5.6.3.tgz
+
+      - name: Run JMeter Load Test
+        run: |
+          ./apache-jmeter-5.6.3/bin/jmeter \
+            -n \
+            -t jmeter/load-test.jmx \
+            -l results.jtl \
+            -e \
+            -o jmeter-report
+
+      - name: Upload JMeter Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jmeter-report
+          path: jmeter-report
