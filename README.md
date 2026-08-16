@@ -227,3 +227,28 @@ All API tests passed successfully.
 - Postman Testing: Completed
 - Newman CLI Testing: Completed
 - API Documentation: Completed
+## JMeter Load Testing
+
+JMeter was used to perform load testing on the Student API.
+
+### Test Configuration
+- Number of Threads: 10
+- Ramp-up Period: 10 seconds
+- Loop Count: 5
+- Total Requests: 50
+- Endpoint: GET /api/students
+
+### CLI Load Test Result
+- Samples: 50
+- Average Response Time: 7 ms
+- Minimum Response Time: 4 ms
+- Maximum Response Time: 71 ms
+- Error Percentage: 0.00%
+- Throughput: 5.5 requests/second
+
+The load test completed successfully with zero errors.
+
+### JMeter Files
+- Test Plan: `jmeter/jmeter-load-test.jmx`
+- Summary Report: `reports/jmeter/jmeter-summary.csv`
+- CLI Result: `reports/jmeter/results.jtl`
