@@ -1,0 +1,3 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+Get All Students,50,13,3,342,47.33,0.000%,5.63634,4.30,0.70,782.0
+TOTAL,50,13,3,342,47.33,0.000%,5.63634,4.30,0.70,782.0
