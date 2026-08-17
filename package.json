@@ -1,0 +1,37 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "description": "Student Attendance Management System",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mithila123451/MyProject.git"
+  },
+  "keywords": [
+    "student",
+    "attendance",
+    "crud",
+    "express",
+    "mysql"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mithila123451/MyProject/issues"
+  },
+  "homepage": "https://github.com/mithila123451/MyProject#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.23.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
