@@ -1,0 +1,1008 @@
+{
+  "info": {
+    "_postman_id": "7352c9de-4a60-4631-8dbf-50726782c3a0",
+    "name": "My  API  Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57128046",
+    "_collection_link": "https://go.postman.co/collection/57128046-7352c9de-4a60-4631-8dbf-50726782c3a0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get Post 1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"User ID is 1\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.userId).to.eql(1);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 06 - Post ID should be 2\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(2);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 07 - User ID should be 1\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.userId).to.eql(1);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 08 - Title should exist\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data).to.have.property(\"title\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 09 - Body should exist\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data).to.have.property(\"body\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 10 - Post should contain exactly 4 fields\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(Object.keys(data).length).to.eql(4);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts/2",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 11 - User ID is 1\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(1);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 12 - Username field exists\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.username).to.exist;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 13 - Address is an object\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.address).to.be.an(\"object\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 14 - Company is an object\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.company).to.be.an(\"object\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 15 - User ID is a positive number\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.be.a(\"number\");\r",
+              "    pm.expect(data.id).to.be.above(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/users/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "users",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 4",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 16 - User ID is 2\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(2);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 17 - Username exists\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.username).to.exist;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 18 - Address is an object\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.address).to.be.an(\"object\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 19 - Company is an object\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.company).to.be.an(\"object\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 20 - User ID is a positive number\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.be.a(\"number\");\r",
+              "    pm.expect(data.id).to.be.above(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/users/2",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 5",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 21 - Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 22 - Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 23 - Response time is below 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 24 - Todo ID is 1\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(1);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 25 - Completed field exists\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data).to.have.property(\"completed\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/todos/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "todos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 6",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 26 - Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 27 - Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 28 - Response time is below 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 29 - Todo ID is 2\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(2);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 30 - Todo has a title\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.title).to.be.a(\"string\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/todos/2",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "todos",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 7",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 31 - Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 32 - Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 33 - Response time is below 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 34 - Album ID is 1\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(1);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 35 - Album has userId\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data).to.have.property(\"userId\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/albums/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "albums",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 8",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 31 - Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 32 - Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 33 - Response time is below 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 34 - Album ID is 1\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(1);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 35 - Album has userId\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data).to.have.property(\"userId\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/albums/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "albums",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 9",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 41 - Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 42 - Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 43 - Response time is below 400ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 44 - Photo ID is 1\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.id).to.eql(1);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 45 - Photo has title\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.title).to.be.a(\"string\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/photos/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "photos",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Post 10",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Test 46 - Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 47 - Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 48 - Response time is below 1000ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 49 - Response is an array\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data).to.be.an(\"array\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Test 50 - Posts list is not empty\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.length).to.be.greaterThan(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Student",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Student created successfully\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "const responseData = pm.response.json();\r",
+              "\r",
+              "if (responseData.id) {\r",
+              "    pm.collectionVariables.set(\"student_id\", responseData.id);\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"student_code\": \"CSE007\",\r\n  \"name\": \"Newman Student\",\r\n  \"email\": \"newman7@example.com\",\r\n  \"department\": \"CSE\",\r\n  \"semester\": 4\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/students",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Students",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Success is true\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.success).to.eql(true);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/students",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Student By ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Student data exists\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.success).to.eql(true);\r",
+              "    pm.expect(data.data).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"student_code\": \"CSE006\",\r\n  \"name\": \"Newman Test Student\",\r\n  \"email\": \"newman6@example.com\",\r\n  \"department\": \"CSE\",\r\n  \"semester\": 4\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/students/{{student_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "students",
+            "{{student_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Student",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Student updated successfully\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.success).to.eql(true);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"student_code\": \"CSE005\",\r\n  \"name\": \"Test Student Updated\",\r\n  \"email\": \"test5updated@example.com\",\r\n  \"department\": \"CSE\",\r\n  \"semester\": 5\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/students/{{student_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "students",
+            "{{student_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Attendance request",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Attendance created successfully\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "const responseData = pm.response.json();\r",
+              "\r",
+              "if (responseData.id) {\r",
+              "    pm.collectionVariables.set(\"attendance_id\", responseData.id);\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"student_id\": {{student_id}},\r\n  \"attendance_date\": \"2026-08-20\",\r\n  \"status\": \"Present\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/attendance",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "attendance"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Attendance",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Success is true\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.success).to.eql(true);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/attendance",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "attendance"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Attendance By ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response is JSON\", function () {\r",
+              "    pm.response.to.be.json;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Attendance data exists\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.success).to.eql(true);\r",
+              "    pm.expect(data.data).to.exist;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/attendance/{{attendance_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "attendance",
+            "{{attendance_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Attendance",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"student_id\": {{student_id}},\r\n  \"attendance_date\": \"2026-08-20\",\r\n  \"status\": \"Late\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/attendance/{{attendance_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "attendance",
+            "{{attendance_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Attendance",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"success\": true,\r\n  \"message\": \"Attendance deleted successfully\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/attendance/{{attendance_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "attendance",
+            "{{attendance_id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Student",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Student deleted successfully\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(data.success).to.eql(true);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/students/{{student_id}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "students",
+            "{{student_id}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "student_id",
+      "value": ""
+    },
+    {
+      "key": "attendance_id",
+      "value": ""
+    }
+  ]
+}
