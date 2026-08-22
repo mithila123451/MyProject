@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: '3.8'
 
 services:
@@ -16,3 +17,12 @@ services:
 
 volumes:
   postgres_data:
+=======
+version: "3.9"
+
+services:
+  app:
+    image: nginx:latest
+    ports:
+      - "80:80"
+>>>>>>> f31980649d93632b2012a8756d7ae861ed48175c
