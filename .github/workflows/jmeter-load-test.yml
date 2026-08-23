@@ -1,0 +1,67 @@
+name: JMeter Load Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  jmeter-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Start MySQL
+        run: docker compose up -d mysql
+
+      - name: Wait for MySQL
+        run: sleep 20
+
+      - name: Start Backend
+        run: |
+          npm start > backend.log 2>&1 &
+          sleep 10
+
+      - name: Check Backend
+        run: |
+          curl --fail http://localhost:3000/ || {
+            cat backend.log
+            exit 1
+          }
+
+      - name: Download JMeter
+        run: |
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          tar -xzf apache-jmeter-5.6.3.tgz
+
+      - name: Create Report Directory
+        run: |
+          mkdir -p reports/jmeter
+          mkdir -p reports/jmeter/html
+
+      - name: Run JMeter Load Test
+        run: |
+          ./apache-jmeter-5.6.3/bin/jmeter \
+            -n \
+            -t jmeter/jmeter-load-test.jmx \
+            -Jhost=localhost \
+            -Jport=3000 \
+            -Jprotocol=http \
+            -l reports/jmeter/results.jtl \
+            -e \
+            -o reports/jmeter/html
+
+      - name: Upload JMeter Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jmeter-load-test-results
+          path: reports/jmeter/
