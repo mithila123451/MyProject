@@ -20,7 +20,7 @@ jobs:
         run: npm install
 
       - name: Start MySQL
-        run: docker compose up -d mysql
+        run: docker compose up -d db
 
       - name: Wait for MySQL
         run: sleep 20
