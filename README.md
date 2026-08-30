@@ -2,7 +2,11 @@
 
 ## Project Overview
 
-This project is a Student Attendance Management System built using Node.js, Express.js, MySQL, Docker Compose, Postman, Newman, and MVC Architecture.
+This project is a Student Attendance Management System built using Node.js, Express.js, MySQL, Docker Compose, Postman, Newman, JMeter, GitHub Actions, and MVC Architecture.
+
+The system supports student management, attendance management, API testing, CI/CD testing, and load testing.
+
+---
 
 ## Technologies Used
 
@@ -13,242 +17,27 @@ This project is a Student Attendance Management System built using Node.js, Expr
 - Docker Compose
 - Postman
 - Newman
+- JMeter
 - Git
 - GitHub
+- GitHub Actions
+
+---
 
 ## MVC Structure
 
 ```text
 backend/
 ├── config/
+│   └── db.js
 ├── controllers/
+│   ├── studentController.js
+│   └── attendanceController.js
 ├── models/
+│   ├── studentModel.js
+│   └── attendanceModel.js
 ├── routes/
+│   ├── studentRoutes.js
+│   └── attendanceRoutes.js
 ├── views/
 └── server.js
-```
-
-## Database
-
-Database Name:
-
-```text
-attendance_db
-```
-
-Tables:
-
-- students
-- attendance
-
-The `attendance` table uses `student_id` as a foreign key referencing `students.id`.
-
-## Run Docker
-
-Start the database:
-
-```bash
-docker compose up -d
-```
-
-Check running containers:
-
-```bash
-docker compose ps
-```
-
-## Run Backend
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Server runs at:
-
-```text
-http://localhost:3000
-```
-
-## Student API Endpoints
-
-### 1. Create Student
-
-Method: `POST`
-
-```text
-http://localhost:3000/api/students
-```
-
-Request Body:
-
-```json
-{
-  "student_code": "CSE001",
-  "name": "Rahim Ahmed",
-  "email": "rahim@example.com",
-  "department": "CSE",
-  "semester": 4
-}
-```
-
-### 2. Get All Students
-
-Method: `GET`
-
-```text
-http://localhost:3000/api/students
-```
-
-### 3. Get Student By ID
-
-Method: `GET`
-
-```text
-http://localhost:3000/api/students/:id
-```
-
-Example:
-
-```text
-http://localhost:3000/api/students/1
-```
-
-### 4. Update Student
-
-Method: `PUT`
-
-```text
-http://localhost:3000/api/students/:id
-```
-
-### 5. Delete Student
-
-Method: `DELETE`
-
-```text
-http://localhost:3000/api/students/:id
-```
-
-## Attendance API Endpoints
-
-### 1. Create Attendance
-
-Method: `POST`
-
-```text
-http://localhost:3000/api/attendance
-```
-
-Request Body:
-
-```json
-{
-  "student_id": 1,
-  "attendance_date": "2026-08-20",
-  "status": "Present"
-}
-```
-
-### 2. Get All Attendance
-
-Method: `GET`
-
-```text
-http://localhost:3000/api/attendance
-```
-
-### 3. Get Attendance By ID
-
-Method: `GET`
-
-```text
-http://localhost:3000/api/attendance/:id
-```
-
-### 4. Update Attendance
-
-Method: `PUT`
-
-```text
-http://localhost:3000/api/attendance/:id
-```
-
-### 5. Delete Attendance
-
-Method: `DELETE`
-
-```text
-http://localhost:3000/api/attendance/:id
-```
-
-## Postman Testing
-
-Postman collection file:
-
-```text
-postman/collection.json
-```
-
-## Newman CLI Testing
-
-Run:
-
-```bash
-newman run postman/collection.json
-```
-
-Final Newman Test Result:
-
-```text
-Requests: 20
-Failed Requests: 0
-
-Assertions: 67
-Failed Assertions: 0
-```
-
-All API tests passed successfully.
-
-## Project Status
-
-- Database Docker Service: Completed
-- Database Schema: Completed
-- MVC Architecture: Completed
-- Student CRUD: Completed
-- Attendance CRUD: Completed
-- Postman Testing: Completed
-- Newman CLI Testing: Completed
-- API Documentation: Completed
-## JMeter Load Testing
-
-JMeter was used to perform load testing on the Student API.
-
-### Test Configuration
-- Number of Threads: 10
-- Ramp-up Period: 10 seconds
-- Loop Count: 5
-- Total Requests: 50
-- Endpoint: GET /api/students
-
-### CLI Load Test Result
-- Samples: 50
-- Average Response Time: 7 ms
-- Minimum Response Time: 4 ms
-- Maximum Response Time: 71 ms
-- Error Percentage: 0.00%
-- Throughput: 5.5 requests/second
-
-The load test completed successfully with zero errors.
-
-### JMeter Files
-- Test Plan: `jmeter/jmeter-load-test.jmx`
-- Summary Report: `reports/jmeter/jmeter-summary.csv`
-- CLI Result: `reports/jmeter/results.jtl`
